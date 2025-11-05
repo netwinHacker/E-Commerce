@@ -1,0 +1,55 @@
+/.metadata/
+/.project
+
+
+# Demo Eclipse
+/demo/project
+/demo/classpath
+/demo/settings/
+
+# Maven build
+/demo/target/
+/demo/!.mvn/wrapper/maven-wrapper.jar
+/demo/.mvn/
+/demo/pom.xml.tag
+/demo/pom.xml.releaseBackup
+/demo/pom.xml.versionsBackup
+/demo/pom.xml.next
+/demo/release.properties
+
+# discovery-server
+
+# Demo Eclipse
+/discovery-server/project
+/discovery-server/classpath
+/discovery-server/settings/
+
+# Maven build
+/discovery-server/target/
+/discovery-server/!.mvn/wrapper/maven-wrapper.jar
+/discovery-server/.mvn/
+/discovery-server/pom.xml.tag
+/discovery-server/pom.xml.releaseBackup
+/discovery-server/pom.xml.versionsBackup
+/discovery-server/pom.xml.next
+/discovery-server/release.properties
+
+
+# User Eclipse
+/user-service/project
+/user-service/classpath
+/user-service/settings/
+
+# Maven build
+/user-service/target/
+/user-service/!.mvn/wrapper/maven-wrapper.jar
+/user-service/.mvn/
+/user-service/pom.xml.tag
+/user-service/pom.xml.releaseBackup
+/user-service/pom.xml.versionsBackup
+/user-service/pom.xml.next
+/user-service/release.properties
+
+
+
+
