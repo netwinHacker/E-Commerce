@@ -26,5 +26,16 @@ public class UserService {
 		return userRepository.findByEmail(email);
 	}
 	
+	public List<User> getUserByname(String email)
+	{
+		return userRepository.findByUsername(email);
+	}
+	
+	public void deleteUserByUsername(String username)
+	{
+		List<User> usersTodel = getUserByname(username);
+		userRepository.deleteAll(usersTodel);
+	}
+	
 	
 }
