@@ -34,9 +34,14 @@ public class UserController {
 	}
 	
 	@PostMapping("/register")
-	public ResponseEntity<User> registerUser(@RequestBody User user)
+	public ResponseEntity<String> registerUser(@RequestBody User user) throws Exception
 	{
-		return new ResponseEntity<User>(userService.registerUser(user),null, 200);
+		System.out.println(userService.getUserByname(user.getUsername()));
+		if(userService.getUserByname(user.getUsername()) != null)
+		{
+			return ResponseEntity.ok(userService.registerUser(user).toString());
+		}
+		return new ResponseEntity<>("User already exists",null, HttpStatus.SC_BAD_GATEWAY);
 	}
 	
 	@PostMapping("/getuser")
@@ -46,16 +51,25 @@ public class UserController {
 	}
 	
 	@PostMapping("/getuserbyname")
-	public ResponseEntity<List<User>> getUserByname(@RequestBody UsernameDTO username)
+	public ResponseEntity<User> getUserByname(@RequestBody UsernameDTO username)
 	{
 		return ResponseEntity.ok(userService.getUserByname(username.getUsername()));
 	}
 	
 	@DeleteMapping("/{username}")
 	public ResponseEntity<Void> deleteUserByUsername(@PathVariable String username) {
-		//System.out.println(username);
 	    userService.deleteUserByUsername(username);
 	    return ResponseEntity.noContent().build();
+	}
+	
+	@PostMapping("/login")
+	public ResponseEntity<String> login(@RequestBody User user)
+	{
+		if(userService.getUserByname(user.getUsername()) != null)
+		{
+			return ResponseEntity.ok("Login successful");
+		}
+		return ResponseEntity.ok("Invalid login credentials");
 	}
 
 }
